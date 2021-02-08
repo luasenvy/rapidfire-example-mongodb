@@ -9,9 +9,9 @@ class MongodbServiceLoader extends ServiceLoader {
     super()
   }
 
-  load({ dbs, express, Service: MongodbService }) {
-    const mongoClient = dbs.find(db => db instanceof MongoClient)
-    const db = mongoClient.db('rapid-fire')
+  load({ express, Service: MongodbService }) {
+    const mongoClient = this.$rapidfire.dbs.find(db => db instanceof MongoClient)
+    const db = mongoClient.db('rapidfire')
 
     const collection = (MongodbService.collections || []).reduce((acc, collection) => Object.assign(acc, { [`${collection}`]: db.collection(collection) }), {})
 
@@ -27,7 +27,9 @@ class MongodbServiceLoader extends ServiceLoader {
     }, {})
 
     const service = new MongodbService({ collection, bucket, router: express.Router() })
-    service.db = db
+
+    service.$rapidfire = this.$rapidfire
+
     return service
   }
 }
