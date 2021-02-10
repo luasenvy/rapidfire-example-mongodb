@@ -29,6 +29,7 @@ class MongodbServiceLoader extends ServiceLoader {
     const service = new MongodbService({ collection, bucket, router: express.Router() })
 
     service.$rapidfire = this.$rapidfire
+    service.controller = this.$rapidfire.controllers.find(controller => controller instanceof MongodbService.controller)
 
     return service
   }
