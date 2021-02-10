@@ -11,7 +11,7 @@
   "author": "",
   "license": "BEERWARE",
   "dependencies": {
-    "@luasenvy/rapidfire": "^0.0.12",
+    "@luasenvy/rapidfire": "^0.1.0",
     "mongodb": "^3.6.4"
   },
   "devDependencies": {
