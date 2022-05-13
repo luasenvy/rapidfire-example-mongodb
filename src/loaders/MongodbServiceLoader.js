@@ -1,10 +1,16 @@
-const {
-  Interfaces: { ServiceLoader },
-} = require('@luasenvy/rapidfire')
+/* **************************************************************************
+ *   ██╗  ███╗   ███╗  ██████╗    ██████╗   ██████╗   ████████╗  ███████╗   *
+ *   ██║  ████╗ ████║  ██╔══██╗  ██╔═══██╗  ██╔══██╗  ╚══██╔══╝  ██╔════╝   *
+ *   ██║  ██╔████╔██║  ██████╔╝  ██║   ██║  ██████╔╝     ██║     ███████╗   *
+ *   ██║  ██║╚██╔╝██║  ██╔═══╝   ██║   ██║  ██╔══██╗     ██║     ╚════██║   *
+ *   ██║  ██║ ╚═╝ ██║  ██║       ╚██████╔╝  ██║  ██║     ██║     ███████║   *
+ *   ╚═╝  ╚═╝     ╚═╝  ╚═╝        ╚═════╝   ╚═╝  ╚═╝     ╚═╝     ╚══════╝   *
+ ************************************************************************** */
+import { Interfaces } from '@luasenvy/rapidfire'
 
-const { MongoClient } = require('mongodb')
+import { MongoClient } from 'mongodb'
 
-class MongodbServiceLoader extends ServiceLoader {
+class MongodbServiceLoader extends Interfaces.ServiceLoader {
   constructor() {
     super()
   }
@@ -35,4 +41,4 @@ class MongodbServiceLoader extends ServiceLoader {
   }
 }
 
-module.exports = MongodbServiceLoader
+export default MongodbServiceLoader
